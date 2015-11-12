@@ -1,5 +1,4 @@
 var units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-// var values = [1, 1024, 1058576, 1073741824, 1099511627776, 1125899906842624, 1152921504606846976, 1180591620717411303424       ];
 
 function byteString(value) {
 
@@ -13,5 +12,16 @@ function byteString(value) {
         }
     }
 }
+
+function byteString2(value) {
+    var factor = Math.pow(10, 2)
+    var getUnit = [units[0]];
+    var num =  Math.ceil(value / Math.pow(1024, 2) * factor) / factor;
+    return num.toFixed(2) + ' ' + getUnit
+}
+
+console.log(byteString2(1022));
+console.log(byteString2(1022932324));
+console.log(byteString2(1022932123237));
 
 module.exports = byteString;
